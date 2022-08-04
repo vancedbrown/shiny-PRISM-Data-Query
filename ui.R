@@ -9,6 +9,7 @@ library(ggiraph)
 library(ggplot2)
 library(dplyr)
 library(RODBC)
+library(DT)
 
 
 
@@ -37,8 +38,8 @@ shinyUI(fluidPage(
         ),
 
         mainPanel(
-            fluidRow(column(12, downloadButton("download","Download"))),
-            fluidRow(column(12, tableOutput("table")))
+            fluidRow(column(12, DT::dataTableOutput("table"))),
+            fluidRow(column(12, align='center', downloadButton("download","Download")))
             
         )
     )

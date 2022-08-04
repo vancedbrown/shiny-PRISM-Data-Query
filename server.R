@@ -48,7 +48,7 @@ observe(
 
 
 
-    output$table<-renderTable({act$distraw}, striped = TRUE, hover = TRUE, digits = 0)
+    output$table<-DT::renderDataTable({act$distraw %>% DT::datatable(.,options = list(dom='fltipr'))})
     
     output$download<-downloadHandler(filename = 'prismdata.csv',content = function(file){write.csv(act$distraw,file,row.names = FALSE)})
     
